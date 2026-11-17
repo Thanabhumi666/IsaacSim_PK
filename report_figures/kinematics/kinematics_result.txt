@@ -1,0 +1,79 @@
+====================================================================================================
+1. JOINT TABLE  (base link: base_link; axis and centre expressed in the base frame at q = 0)
+====================================================================================================
+joint            type      parent -> child                    axis (base frame)      centre (mm)              limits (deg)    
+floating_base    fixed     base_link -> trunk_base            [+1.00 +0.00 +0.00]   [    0.0     0.0   105.0]  -
+left_ankle       revolute  leg_left -> ankle_left             [+0.00 +1.00 -0.00]   [  -31.8    64.5    23.5]   -90.0.. 90.0
+left_knee        revolute  upper_leg_left -> leg_left         [-0.00 -1.00 +0.00]   [  -31.8    38.5    65.5]   -90.0.. 90.0
+left_hip_pitch   revolute  hip_left -> upper_leg_left         [+0.00 +1.00 +0.00]   [    4.0    42.5    87.5]   -90.0.. 90.0
+left_hip_roll    revolute  yaw2roll_left -> hip_left          [+1.00 -0.00 +0.00]   [   22.5    17.5    87.5]   -22.0.. 22.0
+head_roll        revolute  yaw_roll_motion -> jaw_soft        [-1.00 +0.00 -0.00]   [    8.1     0.0   220.6]   -25.0.. 25.0
+head_yaw         revolute  neck_pitch -> yaw_roll_motion      [-0.00 +0.00 +1.00]   [   26.0     0.0   206.1]  -170.0..170.0
+head_pitch       revolute  neck -> neck_pitch                 [+0.00 +1.00 -0.00]   [   26.0    14.5   187.4]   -90.0.. 90.0
+right_ankle      revolute  leg_right -> ankle_right           [-0.00 -1.00 +0.00]   [  -31.8   -64.5    23.5]   -90.0.. 90.0
+right_knee       revolute  upper_leg_right -> leg_right       [+0.00 +1.00 +0.00]   [  -31.8   -38.5    65.5]   -90.0.. 90.0
+right_hip_pitch  revolute  hip_right -> upper_leg_right       [-0.00 -1.00 -0.00]   [    4.0   -42.5    87.5]   -90.0.. 90.0
+right_hip_roll   revolute  yaw2roll_right -> hip_right        [+1.00 -0.00 -0.00]   [   22.5   -17.5    87.5]   -22.0.. 22.0
+left_hip_yaw     revolute  trunk_base -> yaw2roll_left        [+0.00 -0.00 -1.00]   [    6.0    17.5   100.0]   -25.0.. 30.0
+neck_pitch       revolute  trunk_base -> neck                 [-0.00 -1.00 +0.00]   [   26.0    14.5   137.4]   -90.0.. 60.0
+right_hip_yaw    revolute  trunk_base -> yaw2roll_right       [-0.00 +0.00 -1.00]   [    6.0   -17.5   100.0]   -25.0.. 30.0
+jaw              revolute  jaw_soft -> jaw                    [+0.00 +1.00 -0.00]   [   28.1     0.0   220.6]     0.0.. 28.6
+
+====================================================================================================
+2. DOF  (Kutzbach, spatial:  M = 6(n-1) - 5 j1,  revolute joint = 1 DOF / removes 5)
+====================================================================================================
+links 17, revolute joints 15, fixed joints 1 (a fixed joint welds two links into one rigid body -> 16 bodies)
+left leg chain : left_hip_yaw -> left_hip_roll -> left_hip_pitch -> left_knee -> left_ankle  (5 joints)
+right leg chain: right_hip_yaw -> right_hip_roll -> right_hip_pitch -> right_knee -> right_ankle  (5 joints)
+head joints    : head_roll, head_yaw, head_pitch, neck_pitch, jaw  (5 joints)
+floating robot : 6 (free base) + 15 joints = 21 DOF
+double support : legs + base form a closed loop: n = 10 (ground incl. feet, base, leg links), j = 10  ->  M = 6(10-1) - 5(10) = 4  (+5 head = 9)
+single support : one leg = open chain of 5 joints -> the base can move in only 5 of its 6 directions relative to the stance foot (no ankle roll) -> sideways balance must come from hip_roll / stepping
+
+====================================================================================================
+3. LEFT LEG GEOMETRY AT q = 0 (joint centres in the base frame, mm)
+====================================================================================================
+  left_hip_yaw     [    6.0    17.5   100.0]
+  left_hip_roll    [   22.5    17.5    87.5]   distance from previous joint   20.7 mm
+  left_hip_pitch   [    4.0    42.5    87.5]   distance from previous joint   31.1 mm
+  left_knee        [  -31.8    38.5    65.5]   distance from previous joint   42.2 mm
+  left_ankle       [  -31.8    64.5    23.5]   distance from previous joint   49.4 mm
+  sole centre      [  -24.8    48.3    -1.5]   distance from ankle   30.6 mm
+
+====================================================================================================
+4. LEFT FOOT JACOBIAN  v_sole = J(q) q_dot   (linear part, cm per rad; base held fixed)
+====================================================================================================
+-- zero pose: sole at [-24.8 48.3 -1.5] mm
+   joint               dx/dq    dy/dq    dz/dq    measured dx (sim, +0.3 rad)
+   left_hip_yaw        +3.08    +3.08    +0.00                               
+   left_hip_roll       +0.00    +8.90    +3.08                               
+   left_hip_pitch      -8.90    +0.00    +2.88                           -8.3
+   left_knee           +6.70    -0.00    +0.70                           +6.4
+   left_ankle          -2.50    +0.00    -0.70                           -2.5
+   singular values of J_v: [11.98  9.9   2.43] cm/rad   manipulability sqrt(det(J J^T)) = 288.63 cm^3
+-- standing pose: sole at [7.1 48.3 -3.8] mm
+   joint               dx/dq    dy/dq    dz/dq    measured dx (sim, +0.3 rad)
+   left_hip_yaw        +3.08    -0.11    +0.00                               
+   left_hip_roll       +0.00    +9.13    +3.08                               
+   left_hip_pitch      -9.13    +0.00    -0.31                               
+   left_knee           +5.97    -0.00    +3.07                               
+   left_ankle          -2.50    +0.00    -0.70                               
+   singular values of J_v: [11.81  9.63  2.3 ] cm/rad   manipulability sqrt(det(J J^T)) = 261.75 cm^3
+   (measured values are finite differences over 0.3 rad, so they differ a little from the exact derivative)
+
+====================================================================================================
+5. STATICS IN THE STANDING POSE  (mass 0.502 kg, weight 4.92 N)
+====================================================================================================
+centre of mass [7.9 0.2 126.4] mm (base frame)
+-- ankle_left: ground reaction 2.46 N up
+   left_hip_yaw     tau = -0.000 Nm   (  0.0% of 1.0 Nm limit)
+   left_hip_roll    tau = -0.076 Nm   (  7.6% of 1.0 Nm limit)
+   left_hip_pitch   tau = +0.008 Nm   (  0.8% of 1.0 Nm limit)
+   left_knee        tau = -0.076 Nm   (  7.6% of 1.0 Nm limit)
+   left_ankle       tau = +0.017 Nm   (  1.7% of 1.0 Nm limit)
+-- ankle_right: ground reaction 2.46 N up
+   right_hip_yaw    tau = -0.000 Nm   (  0.0% of 1.0 Nm limit)
+   right_hip_roll   tau = +0.076 Nm   (  7.6% of 1.0 Nm limit)
+   right_hip_pitch  tau = -0.008 Nm   (  0.8% of 1.0 Nm limit)
+   right_knee       tau = +0.076 Nm   (  7.6% of 1.0 Nm limit)
+   right_ankle      tau = -0.017 Nm   (  1.7% of 1.0 Nm limit)

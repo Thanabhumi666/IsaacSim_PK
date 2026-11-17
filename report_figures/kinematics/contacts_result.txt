@@ -1,0 +1,22 @@
+robot weight 4.92 N (0.502 kg)
+sensor bodies: ['base_link', 'yaw2roll_left', 'hip_left', 'upper_leg_left', 'leg_left', 'ankle_left', 'neck', 'neck_pitch', 'yaw_roll_motion', 'jaw_soft', 'jaw', 'yaw2roll_right', 'hip_right', 'upper_leg_right', 'leg_right', 'ankle_right']
+  contact Fz ankle_left           2.670 N
+  contact Fz ankle_right          2.255 N
+sum of sensed Fz 4.925 N vs weight 4.925 N
+collision prims per rigid body (path relative to Robot), lowest z:
+  /base_link                               colliders 10  lowest z 0.0689  contactReport True
+  /yaw2roll_left                           colliders  4  lowest z 0.0710  contactReport True
+  /hip_left                                colliders  2  lowest z 0.0845  contactReport True
+  /upper_leg_left                          colliders  5  lowest z 0.0613  contactReport True
+  /leg_left                                colliders  2  lowest z 0.0220  contactReport True
+  /ankle_left                              colliders  4  lowest z 0.0065  contactReport True
+  /neck                                    colliders  4  lowest z 0.1359  contactReport True
+  /neck_pitch                              colliders  2  lowest z 0.1864  contactReport True
+  /yaw_roll_motion                         colliders  4  lowest z 0.2141  contactReport True
+  /jaw_soft                                colliders 14  lowest z 0.2117  contactReport True
+  /jaw                                     colliders  2  lowest z 0.2112  contactReport True
+  /yaw2roll_right                          colliders  4  lowest z 0.0710  contactReport True
+  /hip_right                               colliders  2  lowest z 0.0845  contactReport True
+  /upper_leg_right                         colliders  5  lowest z 0.0613  contactReport True
+  /leg_right                               colliders  2  lowest z 0.0220  contactReport True
+  /ankle_right                             colliders  4  lowest z 0.0065  contactReport True

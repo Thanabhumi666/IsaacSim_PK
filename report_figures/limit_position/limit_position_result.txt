@@ -1,0 +1,130 @@
+Micro Duck limit-position analysis   (URDF microduck_fixed.urdf, mass 0.502 kg, weight 4.92 N)
+foot point: sole centre from the foot meshes
+frame: robot base frame, x = forward, y = left, z = up; sagittal plane = x-z. Leg analysed: LEFT (right leg is its mirror image, its joint axes are flipped so the angle signs are opposite).
+
+====================================================================================================
+1. JOINT LIMITS OF THE LEG JOINTS (from the URDF)
+====================================================================================================
+joint              lower (deg) upper (deg) range (deg) stance (deg) effort (Nm)  axis in base frame
+left_hip_yaw             -25.0        30.0        55.0          0.0        1.00  [+0.00 -0.00 -1.00]
+left_hip_roll            -22.0        22.0        44.0          0.0        1.00  [+1.00 -0.00 +0.00]
+left_hip_pitch           -90.0        90.0       180.0        -17.2        1.00  [+0.00 +1.00 +0.00]
+left_knee                -90.0        90.0       180.0         17.2        1.00  [-0.00 -1.00 +0.00]
+left_ankle               -90.0        90.0       180.0         34.4        1.00  [+0.00 +1.00 -0.00]
+right_hip_yaw            -25.0        30.0        55.0          0.0        1.00  [-0.00 +0.00 -1.00]
+right_hip_roll           -22.0        22.0        44.0          0.0        1.00  [+1.00 -0.00 -0.00]
+right_hip_pitch          -90.0        90.0       180.0         17.2        1.00  [-0.00 -1.00 -0.00]
+right_knee               -90.0        90.0       180.0        -17.2        1.00  [+0.00 +1.00 +0.00]
+right_ankle              -90.0        90.0       180.0        -34.4        1.00  [-0.00 -1.00 +0.00]
+
+====================================================================================================
+2. LEG LINKS AND THE TOGGLE (DEAD-CENTRE) POSITION OF THE KNEE
+====================================================================================================
+thigh  hip_pitch -> knee  :   42.2 mm (3D)     42.0 mm in the sagittal plane
+shin   knee -> ankle      :   49.4 mm (3D)     42.0 mm in the sagittal plane
+foot   ankle -> sole      :   30.6 mm
+max possible hip->ankle reach if the knee could reach the toggle: l1 + l2 = 91.6 mm (sagittal 84.0 mm)
+
+knee angle at the toggle position (thigh and shin collinear, leg fully stretched): -58.4 deg -> hip->ankle 86.8 mm
+knee angle at the folded dead centre (shin folded back onto the thigh)          : +121.6 deg -> hip->ankle 22.0 mm (geometric only, parts would collide)
+knee joint limits: -90.0 .. +90.0 deg -> toggle position is INSIDE the joint range
+at q = 0 the leg is 58.4 deg away from the toggle; hip->ankle 76.6 mm = 88.2 % of the stretched length
+within the joint limits: longest leg 86.8 mm at knee -58.4 deg, shortest 31.7 mm at knee +90.0 deg -> leg length can change by 55.1 mm
+standing pose (knee +17.2 deg): hip->ankle 69.9 mm = 80.5 % of the stretched length, 75.6 deg from the toggle
+
+====================================================================================================
+3. LIMIT POSITIONS SET BY THE JOINT STOPS (hip_yaw = hip_roll = 0, ankle = 0; ankle centre relative to the hip_pitch centre, mm)
+====================================================================================================
+furthest forward             x   +64.0  z   -35.8   at hip_pitch   -90.0 deg, knee    +0.0 deg  (hip at stop)
+furthest back                x   -84.0  z    -0.1   at hip_pitch   +31.5 deg, knee   -58.5 deg
+lowest (leg reaches down)    x    +0.1  z   -84.0   at hip_pitch   -58.5 deg, knee   -58.5 deg
+highest (foot lifted)        x   -22.0  z   +77.8   at hip_pitch   +90.0 deg, knee   -90.0 deg  (hip at stop)  (knee at stop)
+workspace size: 148.0 mm (x) by 161.8 mm (z)
+workspace area (sagittal, ankle centre): 11082 mm^2 = 110.8 cm^2 (may count overlap twice if the map folds; no fold when the toggle is outside the knee range)
+
+====================================================================================================
+4. SINGULARITY: DETERMINANT OF THE PLANAR JACOBIAN  d(x,z)_ankle / d(hip_pitch, knee)
+====================================================================================================
+theory (planar 2R arm): det J = l1 * l2 * sin(theta_knee')  where theta_knee' is the angle between thigh and shin lines -> det = 0 at the toggle position (leg straight) -> the foot cannot move along the leg.
+knee (deg) from toggle (deg) hip->ankle (mm) |det J| (cm^2/rad^2) l1 l2 |sin| (cm^2)
+     -90.0             -31.6            83.8                 9.24               9.24
+     -75.0             -16.6            86.0                 5.04               5.04
+     -60.0              -1.6            86.8                 0.49               0.49
+     -45.0              13.4            86.3                 4.09               4.09
+     -30.0              28.4            84.4                 8.39               8.39
+     -15.0              43.4            81.1                12.12              12.12
+       0.0              58.4            76.6                15.03              15.02
+      15.0              73.4            70.8                16.91              16.90
+      30.0              88.4            64.1                17.63              17.63
+      45.0             103.4            56.5                17.16              17.16
+      60.0             118.4            48.3                15.52              15.52
+      75.0             133.4            39.8                12.81              12.82
+      90.0             148.4            31.7                 9.24               9.24
+
+====================================================================================================
+5. STATICS ALONG A CROUCH: torque to carry half the weight (2.46 N) on one sole, stance ratios scaled by c (c = 1 is the standing pose)
+====================================================================================================
+pose(c): hip_pitch = c * stance_hip, knee = c * stance_knee, ankle = c * stance_ankle. tau = J_sole^T F, F = vertical ground reaction. c is increased until a joint stop is reached.
+    c knee (deg) hip height (mm) sole x (mm) tau_hip (Nm) tau_knee (Nm) tau_ankle (Nm) knee % of limit
+ 0.00        0.0            89.0       -28.8       +0.071        +0.017         -0.017            1.7%
+ 0.26        4.5            91.2       -20.4       +0.050        +0.033         -0.017            3.3%
+ 0.52        9.0            92.3       -11.9       +0.029        +0.049         -0.017            4.9%
+ 0.79       13.5            92.2        -3.6       +0.009        +0.064         -0.017            6.4%
+ 1.05       18.0            91.0         4.5       -0.011        +0.078         -0.017            7.8%
+ 1.31       22.5            88.7        12.1       -0.030        +0.090         -0.017            9.0%
+ 1.57       27.0            85.6        19.1       -0.047        +0.101         -0.017           10.1%
+ 1.83       31.5            81.5        25.4       -0.063        +0.109         -0.017           10.9%
+ 2.09       36.0            76.8        30.9       -0.076        +0.116         -0.017           11.6%
+ 2.36       40.5            71.6        35.6       -0.088        +0.119         -0.017           11.9%
+ 2.62       45.0            65.9        39.3       -0.097        +0.121         -0.017           12.1%
+crouch stops at c = 2.62 (first joint stop). The deeper the crouch, the larger the knee lever arm -> the knee torque grows; a straight leg (near the toggle) carries the weight with almost no knee torque.
+
+====================================================================================================
+6. HOW CLOSE THE WALKING GAIT (RUN 4) COMES TO THE LIMITS
+====================================================================================================
+vx 0p10: left knee +45.3 .. +66.4 deg, closest to the toggle 103.7 deg; hip->ankle (sagittal) 39.0 .. 52.1 mm = 60.0 % of the stretched leg at most
+vx 0p15: left knee +45.8 .. +67.8 deg, closest to the toggle 104.2 deg; hip->ankle (sagittal) 38.2 .. 51.8 mm = 59.7 % of the stretched leg at most
+vx 0p20: left knee +46.3 .. +68.8 deg, closest to the toggle 104.7 deg; hip->ankle (sagittal) 37.9 .. 51.6 mm = 59.4 % of the stretched leg at most
+vx 0p25: left knee +46.0 .. +69.9 deg, closest to the toggle 104.4 deg; hip->ankle (sagittal) 37.2 .. 51.9 mm = 59.8 % of the stretched leg at most
+
+speed  joint              limit lo limit hi walk min walk max % range used margin to stop (deg)
+0p10   left_hip_yaw          -25.0     30.0     -0.5      4.8         9.7%                 24.5
+0p10   left_hip_roll         -22.0     22.0     -3.3      2.9        14.1%                 18.7
+0p10   left_hip_pitch        -90.0     90.0    -29.4    -16.7         7.0%                 60.6
+0p10   left_knee             -90.0     90.0     45.3     66.4        11.8%                 23.6
+0p10   left_ankle            -90.0     90.0     70.8     82.6         6.6%                  7.4
+0p10   right_hip_yaw         -25.0     30.0     -1.2      2.4         6.6%                 23.8
+0p10   right_hip_roll        -22.0     22.0     -3.6      0.9        10.1%                 18.4
+0p10   right_hip_pitch       -90.0     90.0     -1.6     14.7         9.1%                 75.3
+0p10   right_knee            -90.0     90.0    -63.5    -52.4         6.2%                 26.5
+0p10   right_ankle           -90.0     90.0    -62.1    -50.1         6.6%                 27.9
+0p15   left_hip_yaw          -25.0     30.0     -0.8      5.4        11.2%                 24.2
+0p15   left_hip_roll         -22.0     22.0     -3.8      3.1        15.8%                 18.2
+0p15   left_hip_pitch        -90.0     90.0    -31.6    -16.2         8.6%                 58.4
+0p15   left_knee             -90.0     90.0     45.8     67.8        12.2%                 22.2
+0p15   left_ankle            -90.0     90.0     69.4     82.2         7.1%                  7.8
+0p15   right_hip_yaw         -25.0     30.0     -1.4      3.1         8.0%                 23.6
+0p15   right_hip_roll        -22.0     22.0     -2.8      0.7         8.0%                 19.2
+0p15   right_hip_pitch       -90.0     90.0     -4.0     16.6        11.5%                 73.4
+0p15   right_knee            -90.0     90.0    -63.8    -52.7         6.1%                 26.2
+0p15   right_ankle           -90.0     90.0    -62.4    -49.0         7.4%                 27.6
+0p20   left_hip_yaw          -25.0     30.0     -1.2      5.7        12.4%                 23.8
+0p20   left_hip_roll         -22.0     22.0     -3.9      3.5        16.7%                 18.1
+0p20   left_hip_pitch        -90.0     90.0    -33.6    -15.2        10.2%                 56.4
+0p20   left_knee             -90.0     90.0     46.3     68.8        12.5%                 21.2
+0p20   left_ankle            -90.0     90.0     66.3     81.5         8.4%                  8.5
+0p20   right_hip_yaw         -25.0     30.0     -1.6      3.4         9.1%                 23.4
+0p20   right_hip_roll        -22.0     22.0     -2.0      0.6         5.9%                 20.0
+0p20   right_hip_pitch       -90.0     90.0     -5.3     18.9        13.4%                 71.1
+0p20   right_knee            -90.0     90.0    -63.5    -51.6         6.6%                 26.5
+0p20   right_ankle           -90.0     90.0    -62.5    -47.2         8.5%                 27.5
+0p25   left_hip_yaw          -25.0     30.0     -1.3      6.1        13.5%                 23.7
+0p25   left_hip_roll         -22.0     22.0     -4.6      3.6        18.5%                 17.4
+0p25   left_hip_pitch        -90.0     90.0    -36.5    -13.9        12.6%                 53.5
+0p25   left_knee             -90.0     90.0     46.0     69.9        13.3%                 20.1
+0p25   left_ankle            -90.0     90.0     63.8     80.9         9.5%                  9.1
+0p25   right_hip_yaw         -25.0     30.0     -1.9      4.0        10.8%                 23.1
+0p25   right_hip_roll        -22.0     22.0     -1.8      1.1         6.7%                 20.2
+0p25   right_hip_pitch       -90.0     90.0     -7.2     21.1        15.7%                 68.9
+0p25   right_knee            -90.0     90.0    -63.4    -51.4         6.7%                 26.6
+0p25   right_ankle           -90.0     90.0    -62.4    -45.4         9.4%                 27.6

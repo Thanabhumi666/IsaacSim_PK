@@ -1,0 +1,11 @@
+Velocity analysis check, run 4 at vx = 0.15 m/s, left ankle relative to hip_left (base frame)
+samples 500, dt 0.020 s
+position: forward kinematics from the URDF with the recorded joint angles vs. position recorded in Isaac Sim
+  RMS error x/y/z (mm): 0.000 / 0.000 / 0.000
+  max |error| (mm): 0.001
+velocity: v = J(q) q_dot (URDF Jacobian x recorded joint speeds) vs. finite difference of the recorded position
+  RMS of v (m/s) x/y/z: 0.1244 / 0.0361 / 0.1349
+  RMS difference (m/s) x/y/z: 0.0144 / 0.0101 / 0.0149
+  correlation x/y/z: 0.9961 / 0.9792 / 0.9955
+  peak |v| of the ankle relative to the hip (m/s): 0.241
+(finite differences at 50 Hz smooth the peaks, so a small difference is expected)
