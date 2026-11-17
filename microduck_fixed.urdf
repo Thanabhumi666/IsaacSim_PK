@@ -1,0 +1,836 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="microduck">
+  
+  <material name="microduck_grey">
+    <color rgba="0.322 0.322 0.337 1.0" />
+  </material>
+  <material name="microduck_cream">
+    <color rgba="0.969 0.902 0.796 1.0" />
+  </material>
+  <material name="microduck_orange">
+    <color rgba="0.973 0.306 0.020 1.0" />
+  </material>
+  <material name="microduck_yellow">
+    <color rgba="0.996 0.580 0.016 1.0" />
+  </material>
+  <material name="microduck_motor">
+    <color rgba="0.075 0.075 0.075 1.0" />
+  </material>
+  <material name="microduck_bearing">
+    <color rgba="0.659 0.667 0.675 1.0" />
+  </material>
+  <material name="microduck_pcb">
+    <color rgba="0.110 0.110 0.118 1.0" />
+  </material>
+  <material name="microduck_battery">
+    <color rgba="0.075 0.075 0.075 1.0" />
+  </material>
+  <material name="microduck_lens">
+    <color rgba="0.039 0.047 0.055 1.0" />
+  </material>
+  
+  <link name="base_link"><inertial><origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0" /><mass value="0.002000" /><inertia ixx="1.000e-07" ixy="0.000e+00" ixz="0.000e+00" iyy="1.000e-07" iyz="0.000e+00" izz="1.000e-07" /></inertial></link>
+  
+  <link name="ankle_left">
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/sole_left.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_yellow" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/foot_left.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 3.141593" xyz="0.0 0.0 -0.0322" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/ankle_left.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/sole_left.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/foot_left.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 3.141593" xyz="0.0 0.0 -0.0322" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/ankle_left.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.006407 -0.014150 -0.015008" rpy="0 0 0" /><mass value="0.024587" /><inertia ixx="4.552e-06" ixy="-8.444e-08" ixz="-3.152e-08" iyy="9.145e-06" iyz="-1.754e-07" izz="6.261e-06" /></inertial></link>
+  
+  <link name="leg_left">
+    <visual>
+      <origin rpy="1.570796 1.570796 0.000000" xyz="-0.022 0.0357771 0.0385" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/leg.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.042 -0.0115" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <collision><origin rpy="1.570796 1.570796 0.000000" xyz="-0.022 0.0357771 0.0385" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/leg.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.042 -0.0115" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.000000 0.031653 -0.009362" rpy="0 0 0" /><mass value="0.017708" /><inertia ixx="4.410e-06" ixy="2.211e-12" ixz="-1.280e-12" iyy="1.783e-06" iyz="6.650e-07" izz="3.644e-06" /></inertial></link>
+  
+  <link name="upper_leg_left">
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.0 -0.0 -0.0425" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_left.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="-3.141593 -1.570796 0.000000" xyz="0.022 0.0357771 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 -0.0 -0.0425" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_rigidity_plate.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 3.141593" xyz="0.022 0.0357771 -0.004" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 -1.570796 0.000000" xyz="-0.0 -0.0 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.0 -0.0 -0.0425" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_left.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-3.141593 -1.570796 0.000000" xyz="0.022 0.0357771 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 -0.0 -0.0425" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_rigidity_plate.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 3.141593" xyz="0.022 0.0357771 -0.004" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 -1.570796 0.000000" xyz="-0.0 -0.0 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.007034 0.022200 0.012767" rpy="0 0 0" /><mass value="0.034096" /><inertia ixx="1.157e-05" ixy="-3.342e-06" ixz="5.134e-08" iyy="6.705e-06" iyz="1.416e-07" izz="1.371e-05" /></inertial></link>
+  
+  <link name="hip_left">
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="0.021 0.0 -0.0185" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 0.000000 0.000000" xyz="-0.0175 0.0 -0.0185" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/hip_l.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <collision><origin rpy="1.570796 0.000000 1.570796" xyz="0.021 0.0 -0.0185" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 0.000000 0.000000" xyz="-0.0175 0.0 -0.0185" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/hip_l.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.013428 -0.000000 -0.006565" rpy="0 0 0" /><mass value="0.004656" /><inertia ixx="5.867e-07" ixy="1.386e-12" ixz="2.655e-07" iyy="8.216e-07" iyz="1.024e-12" izz="4.730e-07" /></inertial></link>
+  
+  <link name="yaw2roll_left">
+    <visual>
+      <origin rpy="3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw2roll.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-3.141593 0.000000 -1.570796" xyz="-0.0 0.0 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 1.570796 0.000000" xyz="-0.0 0.0165 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bearing_roll.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <collision><origin rpy="3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw2roll.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-3.141593 0.000000 -1.570796" xyz="-0.0 0.0 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 1.570796 0.000000" xyz="-0.0 0.0165 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bearing_roll.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.000000 0.000452 0.016901" rpy="0 0 0" /><mass value="0.018198" /><inertia ixx="3.291e-06" ixy="-1.259e-14" ixz="-3.384e-13" iyy="2.749e-06" iyz="-9.332e-08" izz="1.753e-06" /></inertial></link>
+  
+  <link name="jaw_soft">
+    <visual>
+      <origin rpy="-1.570796 0.000000 -1.570796" xyz="0.0155 -9.13778e-05 -0.05548" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/lens.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_lens" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -9.13778e-05 -0.0178" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/face_part.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 -1.570796" xyz="0.003 0.0255 -0.018" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 0.0 -0.018" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/motor_support.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -0.0 -0.018" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/top_head_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="0.0032 -0.04 -0.018" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 -1.570796" xyz="0.02694 0.0289936 -0.0519" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/elec_rpi_robot_hat_pcb.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_pcb" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.00420071 1.7776e-08 -0.0180814" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/soft_mouth_top.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_yellow" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -9.13778e-05 -0.0178" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/noenoeil.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_yellow" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0043 -0.0 -0.018" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bottom_head_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 0.000000 -1.570796" xyz="0.0155 -9.13778e-05 -0.05558" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/m12_lens_holder.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 0.000000 1.570796" xyz="0.015435 -1.13778e-05 -0.06001" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/pcb__raspberry_pi_zero_2_w.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_pcb" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="0.01 -0.016786 0.0260226" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/speaker.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <collision><origin rpy="-1.570796 0.000000 -1.570796" xyz="0.0155 -9.13778e-05 -0.05548" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/lens.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -9.13778e-05 -0.0178" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/face_part.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 -1.570796" xyz="0.003 0.0255 -0.018" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 0.0 -0.018" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/motor_support.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -0.0 -0.018" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/top_head_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 1.570796 0.000000" xyz="0.0032 -0.04 -0.018" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 -1.570796" xyz="0.02694 0.0289936 -0.0519" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/elec_rpi_robot_hat_pcb.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.00420071 1.7776e-08 -0.0180814" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/soft_mouth_top.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 -9.13778e-05 -0.0178" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/noenoeil.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0043 -0.0 -0.018" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bottom_head_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 0.000000 -1.570796" xyz="0.0155 -9.13778e-05 -0.05558" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/m12_lens_holder.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 0.000000 1.570796" xyz="0.015435 -1.13778e-05 -0.06001" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/pcb__raspberry_pi_zero_2_w.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="0.01 -0.016786 0.0260226" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/speaker.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.007205 0.002115 -0.024402" rpy="0 0 0" /><mass value="0.111462" /><inertia ixx="1.959e-04" ixy="1.890e-07" ixz="1.652e-05" iyy="1.596e-04" iyz="4.495e-06" izz="8.248e-05" /></inertial></link>
+  
+  <link name="jaw">
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 0.0 0.002" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/jaw.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 1.570796" xyz="-0.0046 0.0 0.002" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/jaw_soft.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_yellow" />
+    </visual>
+    <collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0045 0.0 0.002" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/jaw.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 1.570796" xyz="-0.0046 0.0 0.002" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/jaw_soft.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.011240 -0.000564 -0.037062" rpy="0 0 0" /><mass value="0.025947" /><inertia ixx="2.681e-05" ixy="2.090e-07" ixz="-1.072e-06" iyy="6.532e-06" iyz="5.711e-07" izz="2.148e-05" /></inertial></link>
+  
+  <link name="yaw_roll_motion">
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.0 0.0 0.01" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw_roll_motion.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.016 0.0 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-0.000000 -1.570796 0.000000" xyz="0.018 0.0 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.0 0.0 0.01" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw_roll_motion.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.016 0.0 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-0.000000 -1.570796 0.000000" xyz="0.018 0.0 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.000087 -0.006018 0.015539" rpy="0 0 0" /><mass value="0.019690" /><inertia ixx="2.958e-06" ixy="5.313e-08" ixz="-2.999e-09" iyy="2.432e-06" iyz="1.550e-08" izz="3.144e-06" /></inertial></link>
+  
+  <link name="neck_pitch">
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.0 0.0287931 -0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck_pitch.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 0.000000" xyz="-0.0 0.0207931 -0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="-0.0 0.0287931 -0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck_pitch.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 0.000000" xyz="-0.0 0.0207931 -0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.000000 0.010329 -0.014500" rpy="0 0 0" /><mass value="0.004268" /><inertia ixx="8.805e-07" ixy="1.715e-12" ixz="-8.495e-13" iyy="7.820e-07" iyz="-1.064e-13" izz="3.669e-07" /></inertial></link>
+  
+  <link name="neck">
+    <visual>
+      <origin rpy="1.570796 1.570796 0.000000" xyz="0.022 0.05 0.028" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 -1.570796 0.000000" xyz="0.0 -0.05 0.0145" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 1.570796 0.000000" xyz="0.022 0.05 0.003" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <collision><origin rpy="1.570796 1.570796 0.000000" xyz="0.022 0.05 0.028" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 -1.570796 0.000000" xyz="0.0 -0.05 0.0145" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 1.570796 0.000000" xyz="0.022 0.05 0.003" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/neck.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.000000 -0.025000 0.014167" rpy="0 0 0" /><mass value="0.029836" /><inertia ixx="1.398e-05" ixy="-4.767e-15" ixz="-2.209e-13" iyy="2.538e-06" iyz="1.641e-15" izz="1.323e-05" /></inertial></link>
+  
+  <link name="ankle_right">
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/ankle_right.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/sole_right.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_yellow" />
+    </visual>
+    <visual>
+      <origin rpy="3.141593 0.000000 0.000000" xyz="-0.0 0.0 -0.0292" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/foot_right.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_orange" />
+    </visual>
+    <collision><origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/ankle_right.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/sole_right.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="3.141593 0.000000 0.000000" xyz="-0.0 0.0 -0.0292" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration_default.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 1.570796 0.000000" xyz="0.022 0.00622291 -0.0647" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/foot_right.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.006407 -0.014150 -0.015008" rpy="0 0 0" /><mass value="0.024587" /><inertia ixx="4.552e-06" ixy="8.442e-08" ixz="3.155e-08" iyy="9.145e-06" iyz="-1.754e-07" izz="6.261e-06" /></inertial></link>
+  
+  <link name="leg_right">
+    <visual>
+      <origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.042 0.0 -0.0115" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 1.570796 0.000000" xyz="-0.0357771 -0.022 0.0385" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/leg.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <collision><origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.042 0.0 -0.0115" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 1.570796 0.000000" xyz="-0.0357771 -0.022 0.0385" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/leg.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.031653 0.000000 -0.009362" rpy="0 0 0" /><mass value="0.017708" /><inertia ixx="1.783e-06" ixy="-8.471e-13" ixz="-6.650e-07" iyy="4.410e-06" iyz="-5.744e-13" izz="3.644e-06" /></inertial></link>
+  
+  <link name="upper_leg_right">
+    <visual>
+      <origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.022 0.0357771 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="3.141593 0.000000 0.000000" xyz="-0.022 0.0357771 0.0" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="0.0 0.0 0.0435" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_rigidity_plate.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-1.570796 1.570796 0.000000" xyz="-0.0 0.0 -0.0425" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_right.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <collision><origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.022 0.0357771 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="3.141593 0.000000 0.000000" xyz="-0.022 0.0357771 0.0" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 1.570796 0.000000" xyz="0.0 0.0 0.0435" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_rigidity_plate.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-1.570796 1.570796 0.000000" xyz="-0.0 0.0 -0.0425" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/upper_leg_right.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 -1.570796 0.000000" xyz="0.0 0.0 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.007034 0.022201 0.012767" rpy="0 0 0" /><mass value="0.034096" /><inertia ixx="1.158e-05" ixy="3.342e-06" ixz="-5.134e-08" iyy="6.705e-06" iyz="1.416e-07" izz="1.372e-05" /></inertial></link>
+  
+  <link name="hip_right">
+    <visual>
+      <origin rpy="-1.570796 0.000000 0.000000" xyz="-0.0175 0.0 -0.0185" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/hip_l.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 0.000000 -1.570796" xyz="0.025 0.0 -0.0185" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <collision><origin rpy="-1.570796 0.000000 0.000000" xyz="-0.0175 0.0 -0.0185" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/hip_l.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 0.000000 -1.570796" xyz="0.025 0.0 -0.0185" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.013428 -0.000000 -0.006565" rpy="0 0 0" /><mass value="0.004656" /><inertia ixx="5.867e-07" ixy="1.572e-12" ixz="2.655e-07" iyy="8.216e-07" iyz="2.821e-13" izz="4.730e-07" /></inertial></link>
+  
+  <link name="yaw2roll_right">
+    <visual>
+      <origin rpy="3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw2roll.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="-3.141593 0.000000 -1.570796" xyz="-0.0 0.0 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="-3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bearing_roll.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="1.570796 1.570796 0.000000" xyz="-0.0 0.0165 0.0125" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <collision><origin rpy="3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/yaw2roll.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-3.141593 0.000000 -1.570796" xyz="-0.0 0.0 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="-3.141593 0.000000 0.000000" xyz="-0.0175 -0.002 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/bearing_roll.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="1.570796 1.570796 0.000000" xyz="-0.0 0.0165 0.0125" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="0.000000 0.000452 0.016901" rpy="0 0 0" /><mass value="0.018198" /><inertia ixx="3.291e-06" ixy="-1.259e-14" ixz="-3.384e-13" iyy="2.749e-06" iyz="-9.332e-08" izz="1.753e-06" /></inertial></link>
+  
+  <link name="trunk_base">
+    <visual>
+      <origin rpy="0.000000 0.000000 0.000000" xyz="0.006 0.0175 -0.005" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0005 -0.0175" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/right_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.0042 -0.0 -0.0175215" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/banana_pcb_locker.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/trunk_base.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="3.141593 -1.570796 0.000000" xyz="0.006 0.0175 0.0115" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175215" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/power_support.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_grey" />
+    </visual>
+    <visual>
+      <origin rpy="3.124139 0.000000 -1.570796" xyz="-0.0359693 0.0 -0.00385049" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/np_f970.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_battery" />
+    </visual>
+    <visual>
+      <origin rpy="3.141593 -1.570796 0.000000" xyz="0.006 -0.0175 0.0115" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_motor" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175785" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/left_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_cream" />
+    </visual>
+    <visual>
+      <origin rpy="0.000000 0.000000 0.000000" xyz="0.006 -0.0175 -0.005" />
+      <geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="microduck_bearing" />
+    </visual>
+    <collision><origin rpy="0.000000 0.000000 0.000000" xyz="0.006 0.0175 -0.005" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0005 -0.0175" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/right_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.0042 -0.0 -0.0175215" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/banana_pcb_locker.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/trunk_base.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="3.141593 -1.570796 0.000000" xyz="0.006 0.0175 0.0115" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175215" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/power_support.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="3.124139 0.000000 -1.570796" xyz="-0.0359693 0.0 -0.00385049" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/np_f970.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="3.141593 -1.570796 0.000000" xyz="0.006 -0.0175 0.0115" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/xl330.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 1.570796" xyz="0.004 -0.0 -0.0175785" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/left_shell.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><collision><origin rpy="0.000000 0.000000 0.000000" xyz="0.006 -0.0175 -0.005" /><geometry>
+        <mesh filename="C:/Users/punn_/OneDrive/Desktop/IsaacSim_PK/microduck_description-main/meshes/seeed_bearing__configuration__22x16x4.stl" scale="1.0 1.0 1.0" />
+      </geometry></collision><inertial><origin xyz="-0.019962 -0.000042 0.006026" rpy="0 0 0" /><mass value="0.110306" /><inertia ixx="7.421e-05" ixy="5.150e-08" ixz="-1.322e-05" iyy="8.480e-05" iyz="9.914e-08" izz="7.198e-05" /></inertial></link>
+  <joint name="floating_base" type="fixed">
+    <parent link="base_link" />
+    <child link="trunk_base" />
+    <origin rpy="0 0 0" xyz="0 0 0.105" />
+  </joint>
+  <joint name="left_ankle" type="revolute">
+    <parent link="leg_left" />
+    <child link="ankle_left" />
+    <origin rpy="3.141593 -0.000000 0.000000" xyz="0.0 0.042 -0.026" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948912" upper="1.5707963267949019" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="left_knee" type="revolute">
+    <parent link="upper_leg_left" />
+    <child link="leg_left" />
+    <origin rpy="3.141593 0.000000 1.570796" xyz="0.022 0.0357771 -0.004" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="left_hip_pitch" type="revolute">
+    <parent link="hip_left" />
+    <child link="upper_leg_left" />
+    <origin rpy="-1.570796 0.000000 -1.570796" xyz="0.025 0.0 -0.0185" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.570796326795005" upper="1.5707963267947882" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="left_hip_roll" type="revolute">
+    <parent link="yaw2roll_left" />
+    <child link="hip_left" />
+    <origin rpy="-1.570796 0.000000 0.000000" xyz="0.0 0.0165 0.0125" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-0.3839724354387525" upper="0.3839724354387525" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="head_roll" type="revolute">
+    <parent link="yaw_roll_motion" />
+    <child link="jaw_soft" />
+    <origin rpy="-0.000000 -1.570796 0.000000" xyz="-0.0179 0.0 0.0145" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-0.4363323129986037" upper="0.43633231299856107" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="head_yaw" type="revolute">
+    <parent link="neck_pitch" />
+    <child link="yaw_roll_motion" />
+    <origin rpy="1.570796 0.000000 -3.141593" xyz="-0.0 0.0186931 -0.0145" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-2.967059728390364" upper="2.967059728390357" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="head_pitch" type="revolute">
+    <parent link="neck" />
+    <child link="neck_pitch" />
+    <origin rpy="3.141593 0.000000 0.000000" xyz="0.0 -0.05 -0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948974" upper="1.5707963267948957" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="right_ankle" type="revolute">
+    <parent link="leg_right" />
+    <child link="ankle_right" />
+    <origin rpy="-3.141593 0.000000 1.570796" xyz="-0.042 0.0 -0.026" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948903" upper="1.5707963267949028" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="right_knee" type="revolute">
+    <parent link="upper_leg_right" />
+    <child link="leg_right" />
+    <origin rpy="3.141593 0.000000 0.000000" xyz="-0.022 0.0357771 -0.004" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="right_hip_pitch" type="revolute">
+    <parent link="hip_right" />
+    <child link="upper_leg_right" />
+    <origin rpy="-1.570796 0.000000 -1.570796" xyz="0.025 0.0 -0.0185" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267949268" upper="1.5707963267948664" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="right_hip_roll" type="revolute">
+    <parent link="yaw2roll_right" />
+    <child link="hip_right" />
+    <origin rpy="1.570796 0.000000 3.141593" xyz="-0.0 0.0165 0.0125" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-0.3839724354387525" upper="0.3839724354387525" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="left_hip_yaw" type="revolute">
+    <parent link="trunk_base" />
+    <child link="yaw2roll_left" />
+    <origin rpy="-3.141593 0.000000 1.570796" xyz="0.006 0.0175 -0.005" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-0.4363323129985824" upper="0.5235987755982988" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="neck_pitch" type="revolute">
+    <parent link="trunk_base" />
+    <child link="neck" />
+    <origin rpy="-1.570796 0.000000 -3.141593" xyz="0.026 0.0145 0.0324215" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-1.5707963267948966" upper="1.0471975511965976" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="right_hip_yaw" type="revolute">
+    <parent link="trunk_base" />
+    <child link="yaw2roll_right" />
+    <origin rpy="3.141593 0.000000 1.570796" xyz="0.006 -0.0175 -0.005" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit effort="1.0" lower="-0.4363323129985824" upper="0.5235987755982988" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+  <joint name="jaw" type="revolute">
+    <parent link="jaw_soft" />
+    <child link="jaw" />
+    <origin rpy="0 0 0" xyz="0 0 -0.02" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit effort="1.0" lower="0.0" upper="0.5" velocity="10.0" />
+    <dynamics damping="0.053" friction="0.0048" />
+  </joint>
+</robot>
