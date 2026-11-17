@@ -12,7 +12,7 @@ A reusable starting point for projects in the Mechanical Engineering Department.
 
 ## Project overview
 
-- **Project name:** [Enter project name]
+- **Project name:** [การฝึกหุ่นยนต์สองขา Micro Duck ให้เดินด้วย Reinforcement Learning ใน Isaac Sim และการวิเคราะห์กลไกของขา]
 - **Problem / purpose:** [Describe the engineering need]
 - **Team:** [Names and responsibilities]
 - **Status:** Planning
